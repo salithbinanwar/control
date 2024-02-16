@@ -17,10 +17,10 @@ const addStudent = asyncHandler(async (req , res)=>{
         guardiansPhoneNumber,
         guardiansRelation} = req.body;
 
-        console.log(studentName, schoolName,studentClass,studentsPhoneNumber,guardiansName,guardiansPhoneNumber,guardiansRelation);
+        // console.log(studentName, schoolName,studentClass,studentsPhoneNumber,guardiansName,guardiansPhoneNumber,guardiansRelation);
         const studentIdExists = await Student.findOne({studentsPhoneNumber})
 
-        console.log(studentIdExists)
+        // console.log(studentIdExists)
 
     if(studentIdExists){
 
@@ -72,13 +72,15 @@ const getAllStudent = asyncHandler(async (req , res)=>{
 //! @access PUBLIC
 const deleteStudent = asyncHandler(async (req , res)=>{
     
-const studentsPhoneNumber = req.body;
-console.log(studentsPhoneNumber)
-const findStudent = await Student.findById({studentsPhoneNumber})
-console.log(findStudent)
-if (findStudent) {
-    
-await findStudent.deleteOne(studentsPhoneNumber);
+    const { studentsPhoneNumber } = req.body;
+    console.log(studentsPhoneNumber)
+
+const studentIdExists = await Student.findOne({studentsPhoneNumber})
+console.log(studentIdExists)
+
+if (studentIdExists) {
+    // console.log("student will be deleted soon");
+    await Student.deleteOne({ studentsPhoneNumber });
 }
     res.json({
         isSuccess:true,

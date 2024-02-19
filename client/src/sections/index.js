@@ -1,3 +1,3 @@
 import Hero from "./Hero";
-
-export {Hero}
+import Register from "./Signup";
+export {Hero, Register}

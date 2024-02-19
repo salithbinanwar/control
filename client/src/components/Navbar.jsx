@@ -17,13 +17,13 @@ const Navbar = () => {
         </button>
         <ul className={`hidden lg:flex justify-end text-white ${isOpen ? 'block' : 'hidden'}`}>
 
-          <li className="ml-6">
+          {/* <li className="ml-6">
             <a href="/">Sign in </a>
           </li>
 
           <li className="ml-6">
             <a href="/contact">Register</a>
-          </li>
+          </li> */}
 
         </ul>
       </div>

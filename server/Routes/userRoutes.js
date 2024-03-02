@@ -5,15 +5,17 @@ import {addStudent,deleteStudent,getAllStudent} from "../Controllers/userControl
 import { adminRegister, adminAuthenticate, adminDetails, adminLogOut } from '../admin/adminController.js';
 
 //! admin routes
-router.route('/1337x.to/admin/register').post( adminRegister)
-router.route('/1337x.to/admin/authenticate').post( adminAuthenticate)
-router.route('/1337x.to/admin/details').get(protect, adminDetails)
-router.route('/1337x.to/admin/logout').get(protect,  adminLogOut)
+router.route('/admin/register').post( adminRegister)
+router.route('/admin/authenticate').post( adminAuthenticate)
+router.route('/admin/details').get(protect, adminDetails)
+router.route('/admin/logout').get(protect,  adminLogOut)
 
 //? students route
-router.route('/addstudent').post(protect, addStudent)
-router.route('/getallstudent').get(protect, getAllStudent)
-router.route('/deletestudent').delete(protect, deleteStudent)
+// router.route('/getallstudent').get(protect, getAllStudent)
+router.route('/students')
+.post(protect, addStudent)
+.get( getAllStudent)
+.delete(protect, deleteStudent)
 
 
 export default router ;

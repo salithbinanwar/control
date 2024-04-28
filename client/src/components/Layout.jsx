@@ -1,10 +1,17 @@
-import Navbar from "./Navbar"
+import Navbar from './Navbar'
+import NavControllers from './NavControllers'
 
-const Layout = ({children}) => {
+const Layout = ({ children }) => {
   return (
     <main>
-        <Navbar/>
-        {children}
+      <div className=" ">
+        {/* navbar */}
+        <Navbar />
+        {/* controller */}
+        {/* <NavControllers /> */}
+      </div>
+
+      {children}
     </main>
   )
 }
